@@ -235,3 +235,155 @@ For example:
 
 Transformers revolutionized NLP by introducing attention mechanisms, allowing models to focus on relevant parts of the input. The tokenization techniques play a crucial role in enabling these models to handle diverse language inputs efficiently. By converting words into numerical representations and applying self-attention, Transformers achieve unparalleled performance in tasks like translation, summarization, and more.
 
+
+
+# **Byte-Pair Encoding (BPE)**
+
+**Byte-Pair Encoding (BPE)** is an iterative approach that starts from pre-tokenization and continues until an optimal vocabulary is created based on the frequency of token pairs. BPE is particularly useful for compressing the vocabulary size while still capturing frequent word patterns.
+
+### **How BPE Works:**
+1. **Pre-tokenization:** The sentence is first split into characters or subwords.
+2. **Pairing based on frequency:** The algorithm finds the most frequent pair of characters or subwords in the corpus and merges them into a single unit.
+3. **Repeat:** The process repeats until a predefined vocabulary size is reached.
+
+Example:
+- "The teacher taught the student" might start as:
+  - `T` `h` `e` `t` `e` `a` `c` `h` `e` `r`
+  - BPE merges "th" to form "th" and repeats based on frequency.
+
+---
+
+# **SentencePiece**
+
+**SentencePiece** treats the input as a continuous raw data stream without assuming spaces as word separators. It applies techniques such as **BPE** or **Unigram** to segment the text.
+
+### **Advantages of SentencePiece:**
+- **Space-Free Input:** It can handle languages like Japanese, Chinese, or texts with no explicit spaces.
+- **Versatility:** It can be combined with different tokenization techniques like BPE and unigram models.
+
+---
+
+# **Embeddings**
+
+Embeddings transform tokens into **trainable vectors** in a higher-dimensional space. These vectors capture semantic meanings and relationships between words in the input.
+
+### **Intuition:**
+- **Embeddings** encode the context of a token within a sentence.
+- Each token is represented in a **unique space**, and similar words will have closer distances.
+
+### **Example of Embeddings:**
+
+| Token ID | Word      | Embedding Vector (Illustrative) |
+|----------|-----------|----------------------------------|
+| 220      | The       | [0.2, 0.1, 0.4, 0.7]            |
+| 432      | Teacher   | [0.5, 0.8, 0.2, 0.9]            |
+| 857      | Taught    | [0.6, 0.3, 0.4, 0.8]            |
+| 122      | the       | [0.1, 0.2, 0.5, 0.6]            |
+
+### **Diagram: Tokenization to Embedding and Decoder**
+
+
+---
+
+### **Word Embedding Distance Diagram**
+
+Visualizing the distance between word embeddings (smaller distance indicates similar context):
+
+-- [Teacher]------[Taught]------[Student] \ / \ / [The]-----------------[Book]
+
+
+In the embedding space, **Teacher**, **Taught**, and **Student** are closer to each other, indicating they are contextually related.
+
+---
+
+# **Transformer Architecture**
+
+Transformers consist of two main components:
+1. **Encoder**
+2. **Decoder**
+
+Transformers can handle complex dependencies through self-attention mechanisms, allowing the model to consider the entire sequence at once.
+
+### **Encoder Internals**
+
+The encoder's inputs first flow through a **self-attention layer**, allowing it to look at other words in the sentence while encoding each specific word.
+
+**Encoder Diagram:**
+
+
+---
+
+### **Decoder Internals**
+
+The decoder uses both self-attention and an additional attention layer to focus on the encoder’s output, helping it generate relevant outputs.
+
+**Decoder Diagram:**
+
+
+
+---
+
+# **Summary of Encoder and Decoder**
+
+- **Encoder:**
+  - Encodes input sequences and produces a vector per token with contextual understanding.
+- **Decoder:**
+  - Accepts inputs and generates new tokens step by step, focusing on relevant input parts.
+
+**Complete Transformer Model:**
+
+
+
+
+---
+
+# **Model Types**
+
+### 1. **Encoder-Only Models**
+- **Task:** These models are used for tasks like sentiment analysis.
+- **Characteristic:** Input and output lengths are the same.
+- **Example:** BERT
+- **Use Case:** Sentiment analysis, classification tasks.
+
+### 2. **Encoder-Decoder Models**
+- **Task:** Used for tasks like machine translation where input and output lengths differ.
+- **Characteristic:** Input length ≠ Output length.
+- **Example:** BERT, T5
+- **Use Case:** Machine translation, summarization.
+
+### 3. **Decoder-Only Models**
+- **Task:** These models are commonly used for text generation tasks.
+- **Characteristic:** Popular in generative models.
+- **Example:** GPT, LLaMA
+- **Use Case:** Text generation, chatbots, creative writing.
+
+---
+
+# **Generative Pretrained Transformer (GPT)**
+
+**GPT** models are **decoder-only** models consisting of stacks of decoder blocks. They use self-attention mechanisms and feed-forward networks to generate text outputs.
+
+### **Key Characteristics of GPT:**
+- **Self-attention:** Helps maintain relationships between tokens and context.
+- **Feed-forward networks:** Process the transformed input at each stage.
+- **Generative model:** Most popular for tasks like text generation.
+
+### **Diagram for GPT Model:**
+
+
+
+---
+
+# **Conclusion**
+
+In this section, we covered:
+- **Byte-Pair Encoding (BPE):** Tokenization strategy based on merging frequent pairs.
+- **Embeddings:** Vector representations of tokens in high-dimensional space.
+- **Transformer Architecture:** Comprising encoders and decoders to handle complex NLP tasks.
+- **Model Types:** The different architectures (Encoder-only, Encoder-Decoder, Decoder-only) used for tasks like sentiment analysis, translation, and text generation.
+- **GPT:** A generative model using decoder-only blocks for text generation.
+
+Transformers revolutionized NLP by providing efficient, parallelizable architectures capable of handling long-range dependencies in language. GPT models, in particular, have emerged as the leading choice for text generation tasks.
+
+
+

@@ -1,6 +1,6 @@
 # Large-Language-Models
 
-# **Large Language Models (LLM) Project**
+# **Large Language Models (LLM)**
 
 ## **What are Large Language Models and Why They Are Important**
 

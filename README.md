@@ -484,7 +484,7 @@ The choice of decoding method depends on the specific task and desired outcome:
 
 ## **Example: Text Generation Using Different Decoding Strategies**
 
-Refer to the Python notebook [**text_generation.ipynb**]([./text_generation.ipynb](https://github.com/Pradipwasre/Large-Language-Models/blob/main/LLM%20notebook.ipynb)) in this repository to see how different decoding strategies are applied for generating text using transformer models.
+Refer to the Python notebook [**text_generation.ipynb**](https://github.com/Pradipwasre/Large-Language-Models/blob/main/LLM%20notebook.ipynb) in this repository to see how different decoding strategies are applied for generating text using transformer models.
 
 In the notebook, you will find:
 - Implementation of **Greedy Search**, **Beam Search**, **Top-K Sampling**, and **Top-P Sampling**.

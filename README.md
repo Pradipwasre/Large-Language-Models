@@ -484,7 +484,7 @@ The choice of decoding method depends on the specific task and desired outcome:
 
 ## **Example: Text Generation Using Different Decoding Strategies**
 
-Refer to the Python notebook [**text_generation.ipynb**](./text_generation.ipynb) in this repository to see how different decoding strategies are applied for generating text using transformer models.
+Refer to the Python notebook [**text_generation.ipynb**]([./text_generation.ipynb](https://github.com/Pradipwasre/Large-Language-Models/blob/main/LLM%20notebook.ipynb)) in this repository to see how different decoding strategies are applied for generating text using transformer models.
 
 In the notebook, you will find:
 - Implementation of **Greedy Search**, **Beam Search**, **Top-K Sampling**, and **Top-P Sampling**.
@@ -497,7 +497,7 @@ In the notebook, you will find:
 
 Understanding how different decoding methods work is critical when fine-tuning large language models for text generation tasks. Each method has its pros and cons, and the choice of method will depend on the balance between coherence, diversity, and computational resources. 
 
-For more hands-on examples and code implementations, please check the [notebook](./text_generation.ipynb).
+For more hands-on examples and code implementations, please check the [notebook]([./text_generation.ipynb](https://github.com/Pradipwasre/Large-Language-Models/blob/main/LLM%20notebook.ipynb)).
 
 
 Transformers revolutionized NLP by providing efficient, parallelizable architectures capable of handling long-range dependencies in language. GPT models, in particular, have emerged as the leading choice for text generation tasks.

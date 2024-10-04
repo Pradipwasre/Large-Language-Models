@@ -383,6 +383,123 @@ In this section, we covered:
 - **Model Types:** The different architectures (Encoder-only, Encoder-Decoder, Decoder-only) used for tasks like sentiment analysis, translation, and text generation.
 - **GPT:** A generative model using decoder-only blocks for text generation.
 
+
+# **Text Generation**
+
+In recent years, **open-ended language generation** has gained significant attention, largely due to the rise of large transformer-based language models like **OpenAI's ChatGPT** and **Meta's LLaMA**. These models are trained on massive corpora, including millions of webpages, and are capable of handling a variety of tasks. They can generalize to unseen tasks, process code, and even take non-textual data as input. 
+
+Alongside improvements in **transformer architecture** and the use of **massive unsupervised training data**, better **decoding methods** have also played a crucial role in generating coherent and contextually appropriate text.
+
+---
+
+## **Decoding Methods**
+
+### 1. **Greedy Search**
+**Greedy Search** is the simplest decoding method for text generation. In this method, the model selects the word with the highest probability at each step to generate the next word.
+
+- **Pros:** Simple and fast.
+- **Cons:** Can result in suboptimal text as it does not account for the global context of the entire sentence. The model might miss better sequences with slightly lower immediate probabilities.
+
+### **Example:**
+Suppose we are generating a sentence starting with: **"The cat is"**
+- Greedy Search might choose: **"The cat is sleeping"** (because "sleeping" had the highest probability after "is").
+
+---
+
+### 2. **Beam Search**
+**Beam Search** improves on Greedy Search by considering multiple hypotheses at each step. It keeps track of the `num_beams` most likely sequences and eventually selects the one with the highest overall probability.
+
+- **num_beams:** This determines how many different hypotheses are kept at each time step.
+- **Pros:** Reduces the risk of missing high-probability word sequences.
+- **Cons:** Computationally expensive and can still generate repetitive or dull text.
+
+### **Illustration: Beam Search with num_beams = 2**
+
+Let’s assume we're generating text starting with: **"The cat is"**
+
+| Time Step 1 | Time Step 2          | Hypotheses               |
+|-------------|----------------------|--------------------------|
+| The         | The cat is sleeping   | Hypothesis 1 (chosen)    |
+| The         | The cat is purring    | Hypothesis 2 (next best) |
+
+Beam Search keeps two possibilities ("sleeping" and "purring"), and based on further probabilities, it may choose the best one in subsequent steps.
+
+---
+
+### 3. **Sampling**
+**Sampling** refers to randomly selecting the next word from the probability distribution predicted by the model.
+
+- **Pros:** Adds variability and diversity to text generation.
+- **Cons:** The generated text can be incoherent or irrelevant, especially with highly uncertain models.
+
+### **Example:**
+If the model provides probabilities like:
+- "The cat is" -> `0.4: sleeping`, `0.3: purring`, `0.2: running`, `0.1: barking`
+
+Sampling might randomly select "purring" or "running," adding diversity compared to deterministic methods like Greedy Search.
+
+---
+
+### 4. **Top-K Sampling**
+In **Top-K Sampling**, instead of considering all possible words in the vocabulary, the top **K** most likely words are chosen, and the probability mass is redistributed among them.
+
+- **Pros:** Filters out unlikely candidates, making the generation more controlled.
+- **Cons:** If K is too small, it might lead to repetitive or overly constrained text.
+
+**Example:**
+- K = 3, Top 3 words: `"sleeping"`, `"purring"`, `"running"`
+- The model will then randomly sample from these three words.
+
+**GPT-2** uses **Top-K Sampling**, which helped improve its performance in story generation and other creative tasks.
+
+---
+
+### 5. **Top-P (Nucleus) Sampling**
+**Top-P Sampling** (also known as **Nucleus Sampling**) dynamically adjusts the number of words to sample from. Instead of choosing a fixed K, it selects the smallest set of words whose cumulative probability exceeds **P** (e.g., 90%). The probability mass is then redistributed among this set of words.
+
+- **Pros:** Balances the strengths of both greedy and sampling methods. It can handle highly predictable and highly uncertain distributions more flexibly.
+- **Cons:** Slightly more complex to implement but often provides better results in open-ended tasks.
+
+**Example:**
+- P = 0.9: This means that the model will sample from the smallest set of words whose total probability is greater than 90%.
+  - If "sleeping" = 0.4, "purring" = 0.3, "running" = 0.2, then these three words will be selected, and one will be sampled based on their probabilities.
+
+---
+
+## **Which Decoding Method is Best?**
+
+The choice of decoding method depends on the specific task and desired outcome:
+
+- **Greedy Search:** Fast and simple, but often leads to repetitive or low-quality output. It’s best for constrained tasks where precision matters over creativity.
+- **Beam Search:** Widely used for translation tasks or tasks where coherence is critical, but it can produce boring or repetitive text.
+- **Sampling:** Adds randomness and creativity but can lead to incoherent results.
+- **Top-K Sampling:** A more controlled version of sampling, useful for creative applications like story generation.
+- **Top-P Sampling:** Often seen as the best compromise. It dynamically adjusts the set of candidate words, allowing for both control and diversity in text generation. It is highly favored for open-ended generation tasks like storytelling or dialogue systems.
+
+### **Recommendation:**
+- **Top-P Sampling** is generally preferred for **open-ended text generation** (e.g., stories, dialogue) due to its dynamic selection of tokens and flexibility.
+- **Top-K Sampling** is also a popular choice for creative tasks, such as **GPT-2**’s story generation.
+
+---
+
+## **Example: Text Generation Using Different Decoding Strategies**
+
+Refer to the Python notebook [**text_generation.ipynb**](./text_generation.ipynb) in this repository to see how different decoding strategies are applied for generating text using transformer models.
+
+In the notebook, you will find:
+- Implementation of **Greedy Search**, **Beam Search**, **Top-K Sampling**, and **Top-P Sampling**.
+- A detailed comparison of the generated text using each method.
+- Guidelines on how to tweak the parameters (like `num_beams`, `K`, or `P`) for your own tasks.
+
+--- 
+
+## **Conclusion**
+
+Understanding how different decoding methods work is critical when fine-tuning large language models for text generation tasks. Each method has its pros and cons, and the choice of method will depend on the balance between coherence, diversity, and computational resources. 
+
+For more hands-on examples and code implementations, please check the [notebook](./text_generation.ipynb).
+
+
 Transformers revolutionized NLP by providing efficient, parallelizable architectures capable of handling long-range dependencies in language. GPT models, in particular, have emerged as the leading choice for text generation tasks.
 
 

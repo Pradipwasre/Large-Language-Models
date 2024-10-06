@@ -963,7 +963,31 @@ Once you've crafted a prompt, it’s important to refine it by evaluating the ou
 
 ---
 
+## **In-Context Learning (ICL)**
+
+In-Context Learning is a powerful feature of large language models where the model learns from the examples provided within the same prompt, without needing explicit fine-tuning. Essentially, the model can infer patterns from the given examples and apply them to new tasks within the same context.
+
+### **Zero-Shot Inference**
+
+Zero-shot inference is a technique where the model is given a task it hasn't been explicitly trained on and is expected to complete it correctly. It requires no prior training on task-specific data and instead uses the inherent knowledge the model has from its pre-training.
+
+#### **Example of Zero-Shot Inference**:
+
+In this scenario, the prompt asks the model to classify a review's sentiment without having seen any prior examples:
+
+
+
+Here, the model correctly classifies the sentiment as "Positive" without needing explicit instruction or labeled training data for this specific task.
+
+---
+
 ## **Summary**
 
 Prompt engineering is essential to getting the best results from LLMs. By breaking down prompts into clear components—context, instructions, task, setup, and output format—you can optimize model performance for various tasks like text generation, summarization, and question-answering. After crafting the prompt, continually refine it to improve its effectiveness.
 
+In-Context Learning (ICL) allows the model to learn from the examples provided in the prompt without explicit training. Zero-shot inference, in particular, demonstrates how models can tackle new tasks they haven’t been explicitly trained on by using their pre-existing knowledge.
+
+---
+
+### **For more details and hands-on examples:**
+[Refer the notebook for reference](#)  <!-- Update the link to the notebook here -->

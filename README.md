@@ -613,4 +613,123 @@ Transformers revolutionized NLP by providing efficient, parallelizable architect
 
 By following this process, you can effectively leverage LLMs for a wide range of use cases, from simple text generation tasks to complex, domain-specific applications. For more hands-on examples and code, refer to the accompanying Python notebook in this repository.
 
+---
+
+# **LLM Pre-Training at a High Level**
+
+Understanding the various types of pre-training approaches for Large Language Models (LLMs) is key to choosing the right model architecture for your use case. Each approach serves specific tasks and operates on different objectives depending on whether the model is encoder-based, decoder-based, or both.
+
+---
+
+## **Sequence-to-Sequence Models [Encoder-Decoder]**
+
+**Example**:  
+Original Text: _"The teacher teaches the student."_
+
+**Span Corruption**:  
+During pre-training, part of the input sequence is masked or corrupted, and the model is trained to reconstruct the missing spans.
+
+**Masked Input**:  
+`[The teacher <MASK> <MASK> student]`  
+The Encoder-Decoder LLM tries to predict the missing tokens.
+
+**Prediction**:  
+`[The teacher <X> student]`  
+Where `<X>` represents the corrupted token (e.g., a sentiment or missing word).
+
+### **Applications**:
+- **Translation**
+- **Text Summarization**
+- **Question Answering**
+
+### **Models**:
+- **T5**
+- **BART**
+
+---
+
+## **Autoencoding Models [Encoder Only]**
+
+**Original Text**: _"The teacher teaches the student."_
+
+**Masked Language Modeling (MLM)**:  
+Here, specific words are masked, and the model is trained to reconstruct the entire sequence by predicting the masked word(s).
+
+**Masked Input**:  
+`[The teacher <MASK> the student]`
+
+**Objective**:  
+Reconstruct the original text by filling in the masked words.
+
+**Bidirectional Context**:  
+Autoencoding models use bidirectional context to understand both left and right contexts of the token being predicted.
+
+- `The | teacher | teaches | the | student`  
+   ->        ->                             <-   <-
+
+### **Models**:
+- **BERT**
+- **RoBERTa**
+
+### **Applications**:
+- **Sentiment Analysis**
+- **Named Entity Recognition (NER)**
+- **Word Classification**
+
+---
+
+## **Autoregressive Models [Decoder Only]**
+
+**Original Text**: _"The teacher teaches the student."_
+
+**Causal Language Modeling (CLM)**:  
+Autoregressive models predict the next word in a sequence based on the previous words.
+
+**Input**:  
+`[The | Teacher | ? ]`  
+The model's goal is to predict the next token.
+
+**Objective**:  
+Predict the next word in the sequence (e.g., "teaches").
+
+**Unidirectional Context**:  
+These models use only the left context to predict the next token.
+
+- `The | teacher | teaches`  
+   ->        ->            ->
+
+### **Models**:
+- **GPT**
+- **BLOOM**
+
+### **Applications**:
+- **Text Generation**
+- **Zero-shot Inference**
+
+---
+
+## **Summary**:
+
+Given an original text: _"The teacher teaches the student."_
+
+1. **Autoencoding Models (MLM)**: Masked Language Modeling for reconstructing the original text.
+2. **Autoregressive Models (CLM)**: Causal Language Modeling for predicting the next token.
+3. **Sequence-to-Sequence Models**: Use span corruption to reconstruct masked parts of a sequence.
+
+---
+
+### **Pre-Training for Domain Adaptation**
+
+Pre-training models for domain-specific language, such as **legal** or **medical language**, ensures that the model understands the jargon and specific nuances of each field.
+
+- **Legal Language Example**:  
+   - "The prosecutor had difficulty proving _mens rea_, as the defendant seemed unaware that his actions were illegal."
+- **Medical Language Example**:  
+   - "After the _biopsy_, the doctor confirmed that the tumor was _malignant_ and recommended immediate treatment."
+
+Training models on specific domain data enhances their accuracy and relevance in those fields, allowing them to perform better on tasks such as legal document analysis or medical diagnosis recommendations.
+
+---
+
+For more detailed examples and code implementations, refer to the accompanying Jupyter notebook in this repository.
 

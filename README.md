@@ -870,3 +870,100 @@ When customizing models, it's essential to balance data quality and cost. The **
 4. **Layered Cake Approach**: Balancing data quality, business value, and effort as you move up or down the stack of model customization.
 
 ---
+
+
+# **Prompt Engineering**
+
+Prompt engineering is a key part of adapting Large Language Models (LLMs) for specific tasks. Essentially, it involves crafting inputs—written in plain language—that guide the model to produce desired outputs.
+
+---
+
+## **Prompt Crafting**
+
+The anatomy of a well-crafted prompt involves several components that help shape the response and guide the model effectively.
+
+### **1. Anatomy of a Prompt**
+
+1. **Context / Background**  
+   Set up a clear background or scenario. This helps the model understand the role it should take or the specific expertise required.
+
+   **Example**:  
+   "You are a friendly and helpful teaching assistant."
+
+2. **Instructions**  
+   Provide specific instructions on how the model should perform the task. This can include stylistic guidelines (e.g., "Use simple language suitable for an 8-year-old.") or formatting preferences.
+
+   **Example**:  
+   "Explain the concept using simple terms and provide an example at the end."
+
+3. **Task**  
+   Clearly define what task the model is expected to perform. Whether it's solving a problem, completing a sentence, or answering a question, be explicit about the desired output.
+
+   **Example**:  
+   "Explain what fractions are."
+
+4. **Setup**  
+   You can further enhance the prompt by providing any setup that helps clarify the task or intent. This can include role-playing scenarios, providing the model with an expert identity, or giving examples.
+
+   **Example**:  
+   "You are an expert nutritionist, and I want you to provide answers in bullet points."
+
+5. **Output Format**  
+   Specify how the response should be structured. This might include producing answers in bullet points, a table, or even a piece of code.
+
+   **Example**:  
+   "Provide the answer in bullet points."
+
+---
+
+## **Designing Effective Prompts**
+
+When designing prompts, the goal is to clearly communicate what is expected from the model. Some common tasks you may design prompts for include:
+
+1. **Create Text**: Generate new content based on provided inputs.
+   - Example: "Write a paragraph about the benefits of regular exercise."
+
+2. **Summarize**: Condense large pieces of text into shorter summaries.
+   - Example: "Summarize this article in three sentences."
+
+3. **Respond to Input**: Offer responses based on user questions or instructions.
+   - Example: "Answer the following question: 'What are the causes of climate change?'"
+
+4. **Complete the Text**: Provide the missing parts of a sentence or paragraph.
+   - Example: "The teacher teaches the student, but..."
+
+5. **Solve**: Generate solutions to problems, whether they're mathematical, logical, or creative.
+   - Example: "Solve for X in the equation: 3X + 5 = 20."
+
+6. **Answer**: Provide direct answers to specific questions.
+   - Example: "What is the capital of France?"
+
+---
+
+## **Refining Prompts**
+
+Once you've crafted a prompt, it’s important to refine it by evaluating the output. If the response is not what you expected, you may need to tweak the instructions, rephrase the task, or adjust the context.
+
+### **Steps for Refining Prompts**:
+
+1. **Validate**: Check if the output meets the expectations. If not, identify where it diverges from the intended goal.
+2. **Change**: Modify the language, add more examples, or provide clearer instructions.
+3. **Ask Follow-Up Questions**: Prompt the model to respond with clarifications or additional information. This helps to get more accurate or detailed responses.
+
+---
+
+### **Example of Prompt Design**:
+
+| Component    | Example 1                                                    | Example 2                                                   |
+|--------------|---------------------------------------------------------------|--------------------------------------------------------------|
+| **Context**  | You are an expert nutritionist.                                | You are a friendly and helpful teaching assistant.            |
+| **Instruction** | I want you to provide answers in bullet points.               | You explain concepts in great depth using simple terms.       |
+| **Task**     | Create a meal plan for 2000 calories a day.                    | Explain what are fractions.                                  |
+| **Output**   | - Item 1 <br> - Item 2 <br> - Item 3                           | Sure! Fractions are a way of representing a part of a whole...|
+
+---
+
+## **Summary**
+
+Prompt engineering is essential to getting the best results from LLMs. By breaking down prompts into clear components—context, instructions, task, setup, and output format—you can optimize model performance for various tasks like text generation, summarization, and question-answering. After crafting the prompt, continually refine it to improve its effectiveness.
+

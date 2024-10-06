@@ -503,33 +503,44 @@ For more hands-on examples and code implementations, please check the [notebook]
 
 Transformers revolutionized NLP by providing efficient, parallelizable architectures capable of handling long-range dependencies in language. GPT models, in particular, have emerged as the leading choice for text generation tasks.
 
-+--------------------+        +-----------------------+        +------------------------+
-|   Define Use Case  | -----> |  Select Existing or   | -----> |  Adapt and Align        |
-|                    |        |   Pre-train Model     |        |      Model              |
-+--------------------+        +-----------------------+        +------------------------+
-                                                                            |
-                                                                            v
-                                                               +-----------------------+
-                                                               |       Evaluate        |
-                                                               +-----------------------+
-                                                                            |
-                                                                            v
-                                                               +-----------------------+
-                                                               |  Application Integration|
-                                                               +-----------------------+
-                                                                            |
-                                                                            v
-                                                               +-----------------------+
-                                                               |   Optimize and Deploy  |
-                                                               |    for Inference       |
-                                                               +-----------------------+
-                                                                            |
-                                                                            v
-                                                               +-----------------------+
-                                                               |   Augment Model &     |
-                                                               |   Build LLM-powered   |
-                                                               |       Apps            |
-                                                               +-----------------------+
+
+                          +--------------------+
+                          |   Define Use Case  |
+                          +--------------------+
+                                   |
+                                   v
+                          +-----------------------+
+                          |  Select Existing or   |
+                          |   Pre-train Model     |
+                          +-----------------------+
+                                   |
+                                   v
+                          +------------------------+
+                          |   Adapt and Align      |
+                          |        Model           |
+                          +------------------------+
+                                   |
+                                   v
+                          +-----------------------+
+                          |      Evaluate         |
+                          +-----------------------+
+                                   |
+                                   v
+                          +-----------------------+
+                          | Application Integration|
+                          +-----------------------+
+                                   |
+                                   v
+                          +-----------------------+
+                          |  Optimize and Deploy   |
+                          |    for Inference       |
+                          +-----------------------+
+                                   |
+                                   v
+                          +-----------------------+
+                          |  Augment Model & Build |
+                          |  LLM-powered Apps      |
+                          +-----------------------+
 
 
 ---

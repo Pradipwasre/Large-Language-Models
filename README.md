@@ -503,32 +503,32 @@ For more hands-on examples and code implementations, please check the [notebook]
 
 Transformers revolutionized NLP by providing efficient, parallelizable architectures capable of handling long-range dependencies in language. GPT models, in particular, have emerged as the leading choice for text generation tasks.
 
-
 +--------------------+        +-----------------------+        +------------------------+
-|   Define Use Case  |  ----> |  Select Existing or   |  ----> |  Adapt and Align        |
-|                    |        |  Pre-train Model      |        |  Model                 |
+|   Define Use Case  | -----> |  Select Existing or   | -----> |  Adapt and Align        |
+|                    |        |   Pre-train Model     |        |      Model              |
 +--------------------+        +-----------------------+        +------------------------+
-                                                                           |
-                                                                           v
+                                                                            |
+                                                                            v
                                                                +-----------------------+
-                                                               |      Evaluate         |
+                                                               |       Evaluate        |
                                                                +-----------------------+
-                                                                           |
-                                                                           v
+                                                                            |
+                                                                            v
                                                                +-----------------------+
-                                                               | Application Integration|
+                                                               |  Application Integration|
                                                                +-----------------------+
-                                                                           |
-                                                                           v
+                                                                            |
+                                                                            v
                                                                +-----------------------+
-                                                               |  Optimize and Deploy   |
-                                                               |   for Inference        |
+                                                               |   Optimize and Deploy  |
+                                                               |    for Inference       |
                                                                +-----------------------+
-                                                                           |
-                                                                           v
+                                                                            |
+                                                                            v
                                                                +-----------------------+
-                                                               |  Augment Model & Build |
-                                                               |   LLM-powered Apps     |
+                                                               |   Augment Model &     |
+                                                               |   Build LLM-powered   |
+                                                               |       Apps            |
                                                                +-----------------------+
 
 

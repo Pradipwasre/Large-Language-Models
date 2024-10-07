@@ -64,7 +64,7 @@ By leveraging LLMs and Langchain, this Customer Support App provides efficient, 
 
 To get started with this project, you can clone the repository and install the necessary dependencies. Check out the documentation below for more detailed information on setting up and using the app.
 
-```bash
+
 git clone https://github.com/yourusername/customer-support-app.git
 cd customer-support-app
 
